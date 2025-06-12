@@ -1,39 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Dom events</title>
 </head>
+
 <body>
     <center><img src="img/eid.JPG" alt="" style="width: auto; height:500px;"></center>
 
     <!-- event handlers -->
-   <div>
-    <ul>
-        <li>onclick process1 <button onclick="night()">night mood</button></li>
-        <li>onclick process2 <button id="day">day mood</button></li>
-        <li>onclick process3 <button id="july">July</button></li>
-        <li>onclick process3 <button id="qurbani">QurbaniEid</button></li>
-    </ul>
-   </div>
-   <h1 id="text">hi iam selim</h1>
-   <button id="btn">change</button>
+    <div>
+        <ul>
+            <li>onclick process1 <button onclick="night()">night mood</button></li>
+            <li>onclick process2 <button id="day">day mood</button></li>
+            <li>onclick process3 <button id="july">July</button></li>
+            <li>onclick process3 <button id="qurbani">QurbaniEid</button></li>
+        </ul>
+    </div>
+    <h1 id="text">hi iam selim</h1>
+    <button id="btn">change</button>
 
- <!-- create comment box and display comment -->
+    <!-- create comment box and display comment -->
 
- <div id="allComment">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, vel? Aliquam ex commodi, similique sequi dolorum fugit consectetur ipsum! Laudantium modi facere libero impedit consectetur ratione eaque asperiores delectus vero.</p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit placeat, quisquam ducimus, temporibus cupiditate quibusdam enim modi sapiente voluptatem fugit esse corrupti odio laboriosam omnis exercitationem repellendus commodi ipsam autem.</p>
- </div>
- <!--"newComment" -->
- <div>
-<textarea name="" id="input"></textarea><br>
-<button id="cbtn">Comment</button>
- </div>
+    <div id="allComment">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, vel? Aliquam ex commodi, similique sequi
+            dolorum fugit consectetur ipsum! Laudantium modi facere libero impedit consectetur ratione eaque asperiores
+            delectus vero.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit placeat, quisquam ducimus, temporibus
+            cupiditate quibusdam enim modi sapiente voluptatem fugit esse corrupti odio laboriosam omnis exercitationem
+            repellendus commodi ipsam autem.</p>
+    </div>
+    <!--"newComment" -->
+    <div>
+        <textarea name="" id="input"></textarea><br>
+        <button id="cbtn">Comment</button>
+    </div>
 
+    <!-- delete like github -->
+    <div class="delete-typ">
+        <h1 id="head">this is selim reza</h1>
+        <input id="delInput" type="text" style="padding: 10px; margin-bottom: 10px;"
+            placeholder="delete type to delete text"><br>
+        <button id="delete-btn" style="padding: 10px;" disabled>Delete</button>
+    </div>
 
     <script src="script.js"></script>
+    <script>
+        document.getElementById('delInput').addEventListener('keyup', function (event) {
+
+            const text = event.target.value;
+            console.log(text)
+            const deleteBtn = document.getElementById('delete-btn');
+            if (text == 'delete') {
+                deleteBtn.removeAttribute('disabled');
+
+            } else {
+                deleteBtn.setAttribute('disabled', true)
+            }
+        })
+        document.getElementById('delete-btn').addEventListener('click', function () {
+            const head = document.getElementById('head')
+            head.style.display = 'none'
+
+        })
+    </script>
+
 </body>
+
 </html>
