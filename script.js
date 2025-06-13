@@ -25,7 +25,7 @@ julyy.onclick = function () {
     document.body.style.color = 'white'
 }
 
-// * most usable event listener
+// ! most usable event listener
 
 document.getElementById('qurbani').addEventListener('click', function () {
     document.body.style.backgroundColor = '#B22222'
@@ -56,10 +56,12 @@ document.getElementById('btn').addEventListener('click', function () {
 //! add comment of text field
 
 /**
- * 1. get the element that you want to add a new element.
- * 2. create child element
- * 3. set innerText or innerHTML from value of input field(here is 'textarea')
- * 4. appendChild
+ * 1. Get the parent element where the new child will be added.
+ * 2. Create a new child element.
+ * 3.  Set the content (innerText or innerHTML) using input value.
+ *    Example: p.innerText = textarea.value;
+ * 4. Append the child to the parent.
+ *    Example: container.appendChild(p);
   */
 document.getElementById('cbtn').addEventListener('click', function(){
     const textarea=document.getElementById('input');
@@ -69,3 +71,26 @@ document.getElementById('cbtn').addEventListener('click', function(){
     textarea.value='';
 
 })
+
+
+//! delete like github
+document.getElementById('delInput').addEventListener('keyup', function (event) {
+
+            const text = event.target.value;
+            
+
+            // for disable button when there is no text in input field
+            const deleteBtn = document.getElementById('delete-btn');
+            if (text == 'delete') {
+                deleteBtn.removeAttribute('disabled');
+
+            } else {
+                deleteBtn.setAttribute('disabled', true)
+            }
+        })
+        // for delete h1 heading text
+        document.getElementById('delete-btn').addEventListener('click', function () {
+            const head = document.getElementById('head')
+            head.style.display = 'none'
+
+        })

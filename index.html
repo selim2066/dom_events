@@ -47,23 +47,27 @@
         <button id="delete-btn" style="padding: 10px;" disabled>Delete</button>
     </div>
 
+    <!-- event delegation -->
+    <h1>event delegation</h1>
+    <ul id="listContainer">
+        <li class="item">Lorem ipsum dolor, elit. Aspernatur, quod..</li>
+        <li class="item">Lorem, ipsum.</li>
+        <li class="item">Lorem ipsum dolor sit.</li>
+        <li class="item">Lorem ipsum dolor sit amet consectetur.</li>
+    </ul>
+    <button id="addBtn">add item</button>
+
     <script src="script.js"></script>
     <script>
-        document.getElementById('delInput').addEventListener('keyup', function (event) {
-
-            const text = event.target.value;
-            console.log(text)
-            const deleteBtn = document.getElementById('delete-btn');
-            if (text == 'delete') {
-                deleteBtn.removeAttribute('disabled');
-
-            } else {
-                deleteBtn.setAttribute('disabled', true)
-            }
+        document.getElementById('listContainer').addEventListener('click', function (event) {
+            event.target.parentNode.removeChild(event.target);
         })
-        document.getElementById('delete-btn').addEventListener('click', function () {
-            const head = document.getElementById('head')
-            head.style.display = 'none'
+        document.getElementById('addBtn').addEventListener('click', function () {
+            const listContainer = document.getElementById('listContainer')
+            const li = document.createElement('li')
+            li.innerText = 'new item added$'
+            li.classList.add('item')    
+            listContainer.appendChild(li)
 
         })
     </script>
